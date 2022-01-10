@@ -78,14 +78,17 @@
             }, trigger: 'blur' }
           ],
           sort: [
-            { validator: (rule, value, callback)=>{
-               if(value==''){
-                callback(new Error('排序必须填写'));
-              }else if(!Number.isInteger(value) ||value<0){
-                callback(new Error('排序必须是一个大于等于0数字'));
-              }else{
-                callback();
-              }
+            { 
+              validator: (rule, value, callback)=>
+              {
+                if(value ==''){
+                  console.log(value)
+                  callback(new Error('排序必须填写'));
+                }else if(!Number.isInteger(value) || value<0){
+                  callback(new Error('排序必须是一个大于等于0数字'));
+                }else{
+                  callback();
+                }
 
             } , trigger: 'blur' }
           ]
